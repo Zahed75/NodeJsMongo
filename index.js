@@ -1,5 +1,6 @@
 var MongoClient=require('mongodb').MongoClient;
-var URL="mongodb+srv://ZahedMongo:0D8putbAgHJfJtr1@cluster0.agrwzim.mongodb.net/?retryWrites=true&w=majority"
+// var URL="mongodb+srv://ZahedMongo:0D8putbAgHJfJtr1@cluster0.agrwzim.mongodb.net/?retryWrites=true&w=majority";
+var URL="mongodb://127.0.0.1:27017/";
 // var config={useUndifiedTopology:true};
 
 
@@ -10,7 +11,7 @@ MongoClient.connect(URL,function(error,MyMongoClient){
     }
     else{
         console.log("Connection Success!");
-        // InserData(MyMongoClient);
+        InserData(MyMongoClient);
         // DeleteOneItem(MyMongoClient);
         // DeleteAllItem(MyMongoClient);
         // FindOneDataWithoutConditions(MyMongoClient);
@@ -24,7 +25,7 @@ MongoClient.connect(URL,function(error,MyMongoClient){
         // FindAllDataBySort(MyMongoClient);
         // UpdateMyData(MyMongoClient);
         // CreateMyCollection(MyMongoClient);
-        DeleteMyCollection(MyMongoClient);
+        // DeleteMyCollection(MyMongoClient);
 
 
     }
@@ -37,7 +38,7 @@ function InserData(MyMongoClient){
       var Mydatabase=  MyMongoClient.db("school");
      var MyCollections= Mydatabase.collection('students')
 
-    var Mydata={name:"Nazmul",Roll:"754",department:"CSE",institute:"DU"}
+    var Mydata={name:"Nazmul Hasan",Roll:"444",department:"CSE",institute:"Brac"}
     MyCollections.insertOne(Mydata,function(error){
             if(error){
                 console.log("Data Insert Fail");
